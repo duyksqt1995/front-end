@@ -1,0 +1,44 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* @font-face {
+  font-family: 'MYRIADPROREGULAR';
+  src: local('MYRIADPROREGULAR.ttf'), url('MYRIADPROREGULAR.ttf');
+} */
+
+body {
+  /* font-family: 'MYRIADPROREGULAR'; */
+  font-weight: 300;
+  color: black;
+ 
+}
+img { 
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.wrapper {
+  margin: 0 auto;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto !important;
+  
+}
+.text-center {
+  text-align: center;
+}
+.clear {
+  clear: both;
+}

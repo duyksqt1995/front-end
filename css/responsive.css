@@ -1,0 +1,131 @@
+/** RESPONSIVE **/
+
+/** DESK-TOP **/
+@media only screen and (max-width: 1440px) {
+    i.fas.fa-bars {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1120px) {
+   
+    .ui-tabs .ui-tabs-nav li.ui-tabs-active {    
+        width: 100%;
+    }
+    .ui-tabs .ui-tabs-nav li {    
+        width: 100%;
+    }
+   
+}
+
+/* Màn hình máy tính bảng loại to nằm ngang */
+@media only screen and (max-width: 1024px) {  
+
+    #content .col-left, .col-right{
+        flex: 50%;
+    }
+    #content .col-mid{
+        flex: 50%;
+    }
+    #content .col-right .list-right {
+        padding: 20px 0;    
+    }
+    #content .col-right h5.title {
+        font-size: 24px;
+    }
+    .ui-tabs .ui-tabs-nav {
+        display: block;
+    }
+    
+}
+
+
+/* Màn hình máy tính bảng nằm dọc */
+@media only screen and (max-width: 768px) {
+    
+    i.fas.fa-bars {
+        display: block;
+    }
+    .icon {
+        background: dodgerblue;
+    }
+    .nav {
+        overflow: hidden;
+    }
+    
+    /* Menu */
+    ul{
+        display: none;
+    }
+    ul.active {
+        margin: 0;
+        background-color:black;
+        width: 100%;
+        height: 100%;
+        position: static;
+        top:50px;
+        left: 0px;
+        display: block;
+    }
+    ul li{
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid white
+    }
+    .icon{
+        display: block;
+    }
+    ul.sub-menu{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        left: 0px;
+    }
+}
+
+
+@media only screen and (max-width: 668px) {
+    #content .col-right .list-image img {
+        width: 180px;
+    }
+}
+@media only screen and (max-width: 600px) {
+   
+   
+}
+@media only screen and (max-width: 568px){
+   
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+   /** CONTENT **/
+
+    #content .col-left, .col-right{
+        flex: 100%;
+    }
+    #content .col-mid{
+        flex: 100%;
+    }
+}
+@media only screen and (max-width: 414px){
+   
+}
+@media only screen and (max-width: 384px) {
+
+   
+    
+
+}
+@media only screen and (max-width: 375px) {
+
+
+
+}
+@media only screen and (max-width: 320px) {
+
+
+
+}
+
