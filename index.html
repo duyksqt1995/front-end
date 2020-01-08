@@ -8,8 +8,6 @@
     <!-- css-style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/setting.css" />
     <link rel="stylesheet" href="css/main.css">
@@ -27,32 +25,29 @@
     <!--header-end-->
 
     <!--navbar-start-->
-    <nav id="navbar">
-        <div class="icon">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="container">
-            <ul class="nav">
-                <li><a href="#">Trang Chủ</a></li>
-                <li class="drop-down"><a href="#">Giới Thiệu</a>
-                    <ul class="sub-menu">
-                        <li><a href="#">Menu 1</a></li>
-                        <li class="drop-down-2"><a href="#">Menu 2</a>
-                            <ul class="sub-menu-2">
-                                <li><a href="#">Menu 2.1</a></li>
-                                <li><a href="#">Menu 2.2</a></li>
-                                <li><a href="#">Menu 2.3</a></li>
-                                <li><a href="#">Menu 2.4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Menu 3</a></li>
-                        <li><a href="#">Menu 4</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Sản Phẩm</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
+    <nav id='menu'>
+        <div class="button"></div>
+        <ul>
+            <li class='active'><a href='#'>Trang Chủ</a></li>
+            <li><a href='#'>Giới Thiệu</a></li>
+            <li><a href='#'>Sản phẩm</a>
+                <ul>
+                    <li><a href='#'>Product 1</a>
+                        <ul>
+                            <li><a href='#'>Sub Product</a></li>
+                            <li><a href='#'>Sub Product</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='#'>Product 2</a>
+                        <ul>
+                            <li><a href='#'>Sub Product</a></li>
+                            <li><a href='#'>Sub Product</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href='#'>Contact us</a></li>
+        </ul>
     </nav>
     <!--navbar-end-->
 
@@ -81,75 +76,110 @@
     <section id="content">
         <div class="container">
             <div class="col-left">
-                <div id="tabs-left">
-                    <ul>
-                        <li><a href="#tabs-1">Phần 1</a></li>
-                        <li><a href="#tabs-2">Phần 2</a></li>
+                <ul class="tabs">
+                    <li class="tab-link current" data-tab="tab-1">Tab One</li>
+                    <li class="tab-link" data-tab="tab-2">Tab Two</li>
+                </ul>
 
-                    </ul>
-                    <div id="tabs-1">
-                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
-                            graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-                            century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for
-                            use in a type specimen book. It usually begins.</p>
-                    </div>
-                    <div id="tabs-2">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                            more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English..</p>
-                    </div>
+                <div id="tab-1" class="tab-content current">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
                 </div>
+                <div id="tab-2" class="tab-content">
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.
+                </div>
+
             </div>
             <div class="col-mid">
-                <div id="accordion">
-                    <h3>Section 1</h3>
-                    <div>
-                        <p>
-                            Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                            ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                            amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                            odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                        </p>
-                    </div>
-                    <h3>Section 2</h3>
-                    <div>
-                        <p>
-                            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                            purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                            velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                            suscipit faucibus urna.
-                        </p>
-                    </div>
-                    <h3>Section 3</h3>
-                    <div>
-                        <p>
-                            Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                            Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                            ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                            lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                        </p>
-                        <ul>
-                            <li>List item one</li>
-                            <li>List item two</li>
-                            <li>List item three</li>
+                <ul class="accordion">
+                    <li>
+                        <a class="toggle" href="javascript:void(0);">Item 1</a>
+                        <ul class="inner">
+                            <li>
+                                <a href="#" class="toggle">Open Inner</a>
+                                <div class="inner">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus
+                                        placerat fringilla. Duis a elit et dolor laoreet volutpat. Aliquam ultrices
+                                        mauris id mattis imperdiet. Aenean cursus ultrices justo et varius. Suspendisse
+                                        aliquam orci id dui dapibus
+                                        blandit. In hac habitasse platea dictumst. Sed risus velit, pellentesque eu enim
+                                        ac, ultricies pretium felis.
+                                    </p>
+                                </div>
+                            </li>
                         </ul>
-                    </div>
-                    <h3>Section 4</h3>
-                    <div>
-                        <p>
-                            Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                            et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                            faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                            mauris vel est.
-                        </p>
-                        <p>
-                            Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                            inceptos himenaeos.
-                        </p>
-                    </div>
-                </div>
+                    </li>
+
+                    <li>
+                        <a class="toggle" href="javascript:void(0);">Item 2</a>
+                        <ul class="inner">
+                            <li>
+                                <a href="#" class="toggle">Open Inner</a>
+                                <div class="inner">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus
+                                        placerat fringilla. Duis a elit et dolor laoreet volutpat. Aliquam ultrices
+                                        mauris id mattis imperdiet. Aenean cursus ultrices justo et varius. Suspendisse
+                                        aliquam orci id dui dapibus
+                                        blandit. In hac habitasse platea dictumst. Sed risus velit, pellentesque eu enim
+                                        ac, ultricies pretium felis.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="toggle" href="javascript:void(0);">Item 3</a>
+                        <ul class="inner">
+                            <li>
+                                <a href="#" class="toggle">Open Inner</a>
+                                <div class="inner">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus
+                                        placerat fringilla. Duis a elit et dolor laoreet volutpat. Aliquam ultrices
+                                        mauris id mattis imperdiet. Aenean cursus ultrices justo et varius. Suspendisse
+                                        aliquam orci id dui dapibus
+                                        blandit. In hac habitasse platea dictumst. Sed risus velit, pellentesque eu enim
+                                        ac, ultricies pretium felis.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="toggle" href="javascript:void(0);">Item 4</a>
+                        <ul class="inner">
+                            <li>
+                                <a href="#" class="toggle">Technically any number of nested elements</a>
+                                <ul class="inner">
+                                    <li>
+                                        <a href="#" class="toggle">Another nested element</a>
+                                        <div class="inner">
+                                            <p>
+                                                As long as the inner element has inner as one of its classes then it
+                                                will be toggled.
+                                            </p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus
+                                                placerat fringilla. Duis a elit et dolor laoreet volutpat. Aliquam
+                                                ultrices mauris id mattis imperdiet. Aenean cursus ultrices justo et
+                                                varius. Suspendisse aliquam orci id dui dapibus
+                                                blandit. In hac habitasse platea dictumst. Sed risus velit, pellentesque
+                                                eu enim ac, ultricies pretium felis.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="col-right">
                 <div class="list-right">
@@ -213,22 +243,41 @@
 <!--JS-->
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery-ui.js"></script>
+<!--JQuery Tabs-->
 <script>
-    $(function () {
-        $("#tabs-left").tabs();
+    $(document).ready(function () {
+
+        $('ul.tabs li').click(function () {
+            var tab_id = $(this).attr('data-tab');
+
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
+
+            $(this).addClass('current');
+            $("#" + tab_id).addClass('current');
+        })
+
+    })
+</script>
+<!--JQuery Accorditon-->
+<script>
+    $('.toggle').click(function (e) {
+        e.preventDefault();
+
+        var $this = $(this);
+
+        if ($this.next().hasClass('show')) {
+            $this.next().removeClass('show');
+            $this.next().slideUp(350);
+        } else {
+            $this.parent().parent().find('li .inner').removeClass('show');
+            $this.parent().parent().find('li .inner').slideUp(350);
+            $this.next().toggleClass('show');
+            $this.next().slideToggle(350);
+        }
     });
 </script>
-<script>
-    $(function () {
-        $("#tabs-right").tabs();
-    });
-</script>
-<script>
-    $(function () {
-        $("#accordion").accordion();
-    });
-</script>
+<!--JQuery Menu-->
 <script>
     $("ul.nav, ul.sub-menu").find('> li').hover(
         function () {
@@ -239,17 +288,8 @@
             $(this).find('> ul').hide();
         }
     );
-
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var nut = document.querySelector('div.icon i');
-        var mobile = document.querySelector('ul');
-        nut.addEventListener('click', function () {
-            mobile.classList.toggle('active');
-        })
-    })
-</script>
+<!--JQuery Slider-->
 <script>
     $('#slider .slide').owlCarousel({
         items: 1,
@@ -258,16 +298,17 @@
         autoplayTimeout: 4000,
         margin: 10,
         nav: true,
-
+        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
         responsiveClass: true,
         responsive: {
             0: {
                 items: 1,
-                nav: false
+                nav: true
             },
             600: {
                 items: 1,
-                nav: false
+                nav: true,
+                loop: true
             },
             1000: {
                 items: 1,
@@ -277,6 +318,67 @@
             }
         }
     })
+</script>
+<!--JQuery Menu Reponsive-->
+<script>
+        (function ($) {
+            $.fn.menumaker = function (options) {
+                var menu = $(this), settings = $.extend({
+                    format: "dropdown",
+                    sticky: false
+                }, options);
+                return this.each(function () {
+                    $(this).find(".button").on('click', function () {
+                        $(this).toggleClass('menu-opened');
+                        var mainmenu = $(this).next('ul');
+                        if (mainmenu.hasClass('open')) {
+                            mainmenu.slideToggle().removeClass('open');
+                        }
+                        else {
+                            mainmenu.slideToggle().addClass('open');
+                            if (settings.format === "dropdown") {
+                                mainmenu.find('ul').show();
+                            }
+                        }
+                    });
+                    menu.find('li ul').parent().addClass('has-sub');
+                    multiTg = function () {
+                        menu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+                        menu.find('.submenu-button').on('click', function () {
+                            $(this).toggleClass('submenu-opened');
+                            if ($(this).siblings('ul').hasClass('open')) {
+                                $(this).siblings('ul').removeClass('open').slideToggle();
+                            }
+                            else {
+                                $(this).siblings('ul').addClass('open').slideToggle();
+                            }
+                        });
+                    };
+                    if (settings.format === 'multitoggle') multiTg();
+                    else menu.addClass('dropdown');
+                    if (settings.sticky === true) menu.css('position', 'fixed');
+                    resizeFix = function () {
+                        var mediasize = 1000;
+                        if ($(window).width() > mediasize) {
+                            menu.find('ul').show();
+                        }
+                        if ($(window).width() <= mediasize) {
+                            menu.find('ul').hide().removeClass('open');
+                        }
+                    };
+                    resizeFix();
+                    return $(window).on('resize', resizeFix);
+                });
+            };
+        })(jQuery);
+
+    (function ($) {
+        $(document).ready(function () {
+            $("#menu").menumaker({
+                format: "multitoggle"
+            });
+        });
+    })(jQuery);
 </script>
 
 </html>
