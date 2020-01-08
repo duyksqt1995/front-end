@@ -1,30 +1,27 @@
 /** RESPONSIVE **/
 
 /** DESK-TOP **/
+
+@media only screen and (min-width: 1440px) {
+   
+}
 @media only screen and (max-width: 1440px) {
-    i.fas.fa-bars {
-        display: none;
-    }
+  
 }
 @media only screen and (max-width: 1120px) {
-   
-    .ui-tabs .ui-tabs-nav li.ui-tabs-active {    
-        width: 100%;
-    }
-    .ui-tabs .ui-tabs-nav li {    
-        width: 100%;
-    }
-   
+ 
+    
 }
 
-/* Màn hình máy tính bảng loại to nằm ngang */
+/* Big Tables */
 @media only screen and (max-width: 1024px) {  
 
+    
     #content .col-left, .col-right{
-        flex: 50%;
+        flex: 40%;
     }
     #content .col-mid{
-        flex: 50%;
+        flex: 40%;
     }
     #content .col-right .list-right {
         padding: 20px 0;    
@@ -32,31 +29,37 @@
     #content .col-right h5.title {
         font-size: 24px;
     }
-    .ui-tabs .ui-tabs-nav {
-        display: block;
+    #content .col-left ul.tabs {
+       display: block;
+    }
+   
+    #content .col-left, .col-mid, .col-right {
+        margin: 0 30px !important;
     }
     
 }
 
 
-/* Màn hình máy tính bảng nằm dọc */
+/* Tables */
 @media only screen and (max-width: 768px) {
     
-    i.fas.fa-bars {
+    #navbar i.fas.fa-bars {
         display: block;
+        font-size: 50px;
+        margin-left: 20px;
     }
-    .icon {
+    #navbar .icon {
         background: dodgerblue;
     }
-    .nav {
+    #navbar .nav {
         overflow: hidden;
     }
     
     /* Menu */
-    ul{
+    #navbar ul{
         display: none;
     }
-    ul.active {
+    #navbar ul.active {
         margin: 0;
         background-color:black;
         width: 100%;
@@ -66,21 +69,22 @@
         left: 0px;
         display: block;
     }
-    ul li{
+    #navbar ul li{
         display: block;
         text-align: center;
         border-bottom: 1px solid white
     }
-    .icon{
+    #navbar .icon{
         display: block;
     }
-    ul.sub-menu{
+    #navbar ul.sub-menu{
         width: 100%;
         height: 100%;
         position: fixed;
         z-index: 9999;
         left: 0px;
     }
+  
 }
 
 
@@ -129,3 +133,4 @@
 
 }
 
+/** Menu **/

@@ -98,8 +98,46 @@
 
 
 /** SLIDER **/
+#slider .slide.owl-carousel.owl-loaded.owl-drag {
+    position: relative;
+}
 #slider .owl-nav {
-    display: none;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+}
+
+#slider button.owl-next {
+    float: right;
+    margin-right: 50px;
+}
+#slider button.owl-prev {
+    margin-left: 50px;
+}
+#slider .owl-dots {
+    display: block !important;
+}
+#slider button.owl-dot {
+    background: #989a9a !important;
+    color: #989a9a !important;
+    width: 10px;
+    border-radius: 100% !important;
+    height: 10px;
+    border: 1px solid #989a9a !important;
+    -webkit-border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    -ms-border-radius: 100% !important;
+    -o-border-radius: 100% !important;
+}
+#slider button.owl-dot.active {
+    background: #f73b48 !important;
+    border-color: #f73b48 !important
+}
+#slider .owl-dots {
+    text-align: center;
 }
 
 /** CONTENT **/
@@ -109,11 +147,71 @@
     justify-content: center;
 }
 
+#content .col-left ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+#content .col-left ul.tabs li{
+    background: rgb(142, 230, 165);
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#content .col-left ul.tabs li.current{
+    transition: background .3s ease;
+    background: rgb(2, 247, 43);
+    color: #222;
+    font-weight: bold;
+    
+}
+
+#content .col-left .tab-content{
+    display: none;
+    padding: 15px;
+}
+
+#content .col-left .tab-content.current{
+    display: inherit;
+}
+
+/* Accordion*/
+  #content .col-mid ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #content .col-mid ul .inner {
+    padding-left: 1em;
+    overflow: hidden;
+    display: none;
+  }
+    
+  #content .col-mid ul li {
+    margin: .5em 0;
+  }
+  #content .col-mid ul li a.toggle {
+    width: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.78);
+    color: #fefefe;
+    padding: .75em;
+    border-radius: 0.15em;
+    transition: background .3s ease;
+  }
+  #content .col-mid ul li a.toggle:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
 #content .col-left, .col-right{
-    flex: 25%;
+    flex: 24%;
+    margin: 10px 0;
 }
 #content .col-mid{
-    flex: 50%;
+    flex: 40%;
+    margin: 0 10px;
 }
 #content .col-right .list-right {
     display: flex;
@@ -148,4 +246,75 @@
     font-size: 24px;
     color: yellow;
     font-weight: bold;
+}
+
+/** MENU **/
+#menu li.has-sub {
+    z-index: 9999;
+}
+nav{position:relative;max-width:1200px;margin:0 auto; text-transform: uppercase;}
+#menu,#menu ul,#menu ul li,#menu ul li a,#menu #head-mobile{border:0;list-style:none;line-height:1;display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+#menu:after,#menu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+#menu #head-mobile{display:none}
+#menu{font-family:sans-serif;background:#333}
+#menu > ul > li{float:left}
+#menu > ul > li > a{padding:17px;font-size:12px;letter-spacing:1px;text-decoration:none;color:#ddd;font-weight:700;}
+#menu > ul > li:hover > a,#menu ul li.active a{color:#fff}
+#menu > ul > li:hover,#menu ul li.active:hover,#menu ul li.active,#menu ul li.has-sub.active:hover{background:#448D00!important;-webkit-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;}
+#menu > ul > li.has-sub > a{padding-right:30px}
+#menu > ul > li.has-sub > a:after{position:absolute;top:22px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
+#menu > ul > li.has-sub > a:before{position:absolute;top:19px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
+#menu > ul > li.has-sub:hover > a:before{top:23px;height:0}
+#menu ul ul{position:absolute;left:-9999px}
+#menu ul ul li{height:0;-webkit-transition:all .25s ease;-ms-transition:all .25s ease;background:#333;transition:all .25s ease}
+
+#menu li:hover > ul{left:auto}
+#menu li:hover > ul > li{height:35px}
+#menu ul ul ul{margin-left:100%;top:0}
+#menu ul ul li a{border-bottom:1px solid rgba(150,150,150,0.15);padding:11px 15px;width:170px;font-size:12px;text-decoration:none;color:#ddd;font-weight:400;}
+#menu ul ul li:last-child > a,#menu ul ul li.last-item > a{border-bottom:0}
+#menu ul ul li:hover > a,#menu ul ul li a:hover{color:#fff}
+#menu ul ul li.has-sub > a:after{position:absolute;top:16px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
+#menu ul ul li.has-sub > a:before{position:absolute;top:13px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
+#menu ul ul > li.has-sub:hover > a:before{top:17px;height:0}
+#menu ul ul li.has-sub:hover,#menu ul li.has-sub ul li.has-sub ul li:hover{background:#363636;}
+#menu ul ul ul li.active a{border-left:1px solid #333}
+#menu > ul > li.has-sub > ul > li.active > a,#menu > ul ul > li.has-sub > ul > li.active> a{border-top:1px solid #333}
+
+@media screen and (max-width:1000px){
+.logo{position:absolute;top:0;left: 0;width:100%;height:46px;text-align:center;padding:10px 0 0 0 ;float:none}
+.logo2{display:none}
+nav{width:100%;}
+#menu{width:100%}
+#menu ul{width:100%;display:none}
+#menu ul li{width:100%;border-top:1px solid #444}
+#menu ul li:hover{background:#363636;}
+#menu ul ul li,#menu li:hover > ul > li{height:auto}
+#menu ul li a,#menu ul ul li a{width:100%;border-bottom:0}
+#menu > ul > li{float:none}
+#menu ul ul li a{padding-left:25px}
+#menu ul ul li{background:#333!important;}
+#menu ul ul li:hover{background:#363636!important}
+#menu ul ul ul li a{padding-left:35px}
+#menu ul ul li a{color:#ddd;background:none}
+#menu ul ul li:hover > a,#menu ul ul li.active > a{color:#fff}
+#menu ul ul,#menu ul ul ul{position:relative;left:0;width:100%;margin:0;text-align:left}
+#menu > ul > li.has-sub > a:after,#menu > ul > li.has-sub > a:before,#menu ul ul > li.has-sub > a:after,#menu ul ul > li.has-sub > a:before{display:none}
+#menu #head-mobile{display:block;padding:23px;color:#ddd;font-size:12px;font-weight:700}
+.button{width:55px;height:46px;position:absolute;right:0;top:0;cursor:pointer;background:black;z-index: 12399994;}
+.button:after{position:absolute;top:22px;right:20px;display:block;height:4px;width:20px;border-top:2px solid #dddddd;border-bottom:2px solid #dddddd;content:''}
+.button:before{-webkit-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease;position:absolute;top:16px;right:20px;display:block;height:2px;width:20px;background:#ddd;content:''}
+.button.menu-opened:after{-webkit-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease;top:23px;border:0;height:2px;width:19px;background:#fff;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg)}
+.button.menu-opened:before{top:23px;background:#fff;width:19px;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg)}
+#menu .submenu-button{position:absolute;z-index:99;right:0;top:0;display:block;border-left:1px solid #444;height:46px;width:46px;cursor:pointer}
+#menu .submenu-button.submenu-opened{background:#262626}
+#menu ul ul .submenu-button{height:34px;width:34px}
+#menu .submenu-button:after{position:absolute;top:22px;right:19px;width:8px;height:2px;display:block;background:#ddd;content:''}
+#menu ul ul .submenu-button:after{top:15px;right:13px}
+#menu .submenu-button.submenu-opened:after{background:#fff}
+#menu .submenu-button:before{position:absolute;top:19px;right:22px;display:block;width:2px;height:8px;background:#ddd;content:''}
+#menu ul ul .submenu-button:before{top:12px;right:16px}
+#menu .submenu-button.submenu-opened:before{display:none}
+#menu ul ul ul li.active a{border-left:none}
+#menu > ul > li.has-sub > ul > li.active > a,#menu > ul ul > li.has-sub > ul > li.active > a{border-top:none}
 }
