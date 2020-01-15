@@ -98,48 +98,208 @@
 
 
 /** SLIDER **/
-#slider .slide.owl-carousel.owl-loaded.owl-drag {
-    position: relative;
-}
-#slider .owl-nav {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 30px;
+
+/**
+ * Padding is set relative to the width
+ * of the element, so here padding-top:60% is
+ * a percentage of the width. This allows us 
+ * to set the height as a ratio of the width
+ *
+ */
+ #slider .carousel{
+	width: 100%;
+	position: relative;
+	padding-top: 60%;
+	overflow: hidden;
 }
 
-#slider button.owl-next {
-    float: right;
-    margin-right: 50px;
-}
-#slider button.owl-prev {
-    margin-left: 50px;
-}
-#slider .owl-dots {
-    display: block !important;
-}
-#slider button.owl-dot {
-    background: #989a9a !important;
-    color: #989a9a !important;
-    width: 10px;
-    border-radius: 100% !important;
-    height: 10px;
-    border: 1px solid #989a9a !important;
-    -webkit-border-radius: 100% !important;
-    -moz-border-radius: 100% !important;
-    -ms-border-radius: 100% !important;
-    -o-border-radius: 100% !important;
-}
-#slider button.owl-dot.active {
-    background: #f73b48 !important;
-    border-color: #f73b48 !important
-}
-#slider .owl-dots {
-    text-align: center;
+#slider .inner{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
 }
 
+/**
+ * ==========================
+ * Animation styles
+ * 
+ * Notes:
+ * 1. We use z-index to position active slides in-front 
+ * of non-active slides
+ * 2. We set right:0 and left:0 on .slide to provide us with
+ * a default positioning on both sides of the slide. This allows 
+ * us to trigger JS and CSS3 animations easily
+ *
+ */
+ #slider .slide{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	right:0;
+	left:0;
+	z-index: 1;
+	opacity: 0;
+}
+
+#slider .slide.active,
+.slide.left,
+.slide.right{
+	z-index: 2;
+	opacity: 1;
+}
+
+/**
+ * ==========================
+ * JS animation styles
+ * 
+ * We use jQuery.animate to control the sliding animations
+ * when CSS3 animations are not available. In order for
+ * the next slide to slide in from the right, we need
+ * to change the left:0 property of the slide to left:auto
+ *
+ */
+
+ #slider .js-reset-left{left:auto}
+
+/**
+ * ==========================
+ * CSS animation styles
+ * 
+ * .slide.left and .slide.right set-up
+ * the to-be-animated slide so that it can slide
+ * into view. For example, a slide that is about 
+ * to slide in from the right will:
+ * 1. Be positioned to the right of the viewport (right:-100%)
+ * 2. Slide in when the style is superseded with a more specific style (right:0%)
+ *
+ */
+ #slider .slide.left{
+	left:-100%;
+	right:0;
+}
+
+#slider .slide.right{
+	right:-100%;
+	left: auto;
+}
+
+#slider .transition .slide.left{left:0%}
+#slider .transition .slide.right{right:0%}
+
+/**
+ * The following classes slide the previously active
+ * slide out of view before positioning behind the 
+ * currently active slide
+ *
+ */
+ #slider .transition .slide.shift-right{right: 100%;left:auto}
+ #slider .transition .slide.shift-left{left: 100%;right:auto}
+
+/**
+ * This sets the CSS properties that will animate. We set the
+ * transition-duration property dynamically via JS.
+ * We use the browser's default transition-timing-function
+ * for simplicity's sake
+ * 
+ * It is important to note that we are using CodePen's inbuilt
+ * CSS3 property prefixer. For your own projects, you will need
+ * to prefix the transition and transform properties here to ensure
+ * reliable support across browsers
+ *
+ */
+ #slider .transition .slide{
+	transition-property: right, left, margin;
+}
+
+/**
+ * ==========================
+ * Indicators
+ *
+ */
+ #slider .indicators{
+  width:100%;
+  position: absolute;
+  bottom:0;
+  z-index: 4;
+  padding:0;
+  text-align: center;
+}
+
+#slider .indicators li{
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	margin: 5px;
+	background: #fff;
+	list-style-type: none;
+	border-radius: 50%;
+  cursor:pointer;
+  transition:background 0.3s ease-out;
+}
+
+#slider .indicators li.active{background:#93278f}
+
+#slider .indicators li:hover{background-color:#2b2b2b}
+
+/**
+ * ==========================
+ * Arrows 
+ *
+ */
+ #slider .arrow{
+  width: 20px;
+  height: 20px;
+  position:absolute;
+  top:50%;
+  z-index:5;
+  border-top:3px solid #fff;
+  border-right:3px solid #fff;
+  cursor:pointer;
+  transition:border-color 0.3s ease-out;
+}
+
+#slider .arrow:hover{border-color:#93278f}
+
+#slider .arrow-left{
+  left:20px;
+  transform:rotate(225deg);
+}
+
+#slider .arrow-right{
+  right:20px;
+  transform:rotate(45deg);
+}
+
+/**
+ * ==========================
+ * For demo purposes only
+ * 
+ * Please note that the styles below are used
+ * for the purposes of this demo only. There is no need
+ * to use these in any of your own projects
+ *
+ */
+ #slider .slide{
+  text-align:center;
+  padding-top:25%;
+  background-size:cover;
+}
+
+
+#slider .slide:nth-child(1){
+	background-image:url(../images/slide-1.jpg);
+ }
+
+ #slider .slide:nth-child(2){
+	background-image:url(../images/slide-2.jpg);
+}
+
+#slider .slide:nth-child(3){
+	background-image:url(../images/slide-3.jpg);
+ }
 /** CONTENT **/
 #content .container {
     display: flex;
@@ -149,11 +309,16 @@
 
 #content .col-left ul.tabs{
     margin: 0px;
-    padding: 0px;
+    padding: 10px 0 0;
+    border-radius: 2px;
     list-style: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 #content .col-left ul.tabs li{
-    background: rgb(142, 230, 165);
+    background: #ffff;
     color: #222;
     display: inline-block;
     padding: 10px 15px;
@@ -162,7 +327,7 @@
 
 #content .col-left ul.tabs li.current{
     transition: background .3s ease;
-    background: rgb(2, 247, 43);
+    background: rgb(246, 250, 44);
     color: #222;
     font-weight: bold;
     
@@ -171,6 +336,10 @@
 #content .col-left .tab-content{
     display: none;
     padding: 15px;
+    background: #ffff;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
 }
 
 #content .col-left .tab-content.current{
@@ -184,34 +353,51 @@
     flex-wrap: wrap;
   }
   #content .col-mid ul .inner {
-    padding-left: 1em;
     overflow: hidden;
     display: none;
   }
     
-  #content .col-mid ul li {
+  /* #content .col-mid ul li {
     margin: .5em 0;
-  }
+  } */
+  #content .col-mid p.toggle.content {
+    background: #fff;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    padding: 10px!important;
+    }
   #content .col-mid ul li a.toggle {
     width: 100%;
     display: block;
-    background: rgba(0, 0, 0, 0.78);
-    color: #fefefe;
+    background: rgba(245, 241, 241, 0.973);
+    color: rgb(15, 247, 235);
+    font-weight: 600;
     padding: .75em;
     border-radius: 0.15em;
     transition: background .3s ease;
-  }
+    -webkit-transition: background .3s ease;
+    -moz-transition: background .3s ease;
+    -ms-transition: background .3s ease;
+    -o-transition: background .3s ease;
+}
   #content .col-mid ul li a.toggle:hover {
     background: rgba(0, 0, 0, 0.9);
   }
 
 #content .col-left, .col-right{
     flex: 24%;
-    margin: 10px 0;
+    background: rgb(101, 65, 233);
+    padding: 0 10px;
+}
+#content .col-right{
+    background: rgb(241, 105, 52) !important;
+    padding-top: 10px;
 }
 #content .col-mid{
     flex: 40%;
-    margin: 0 10px;
+    padding: 10px 20px;
+    background: #f10707;
 }
 #content .col-right .list-right {
     display: flex;
@@ -239,7 +425,7 @@
 /** FOOTER */
 
 #footer .container {
-    background: blueviolet;
+    background: gray;
     padding: 10px 0;
 }
 #footer h1.footer-t.text-center {
@@ -256,11 +442,11 @@ nav{position:relative;max-width:1200px;margin:0 auto; text-transform: uppercase;
 #menu,#menu ul,#menu ul li,#menu ul li a,#menu #head-mobile{border:0;list-style:none;line-height:1;display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 #menu:after,#menu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
 #menu #head-mobile{display:none}
-#menu{font-family:sans-serif;background:#333}
+#menu{font-family:sans-serif;background:#448D00}
 #menu > ul > li{float:left}
 #menu > ul > li > a{padding:17px;font-size:12px;letter-spacing:1px;text-decoration:none;color:#ddd;font-weight:700;}
 #menu > ul > li:hover > a,#menu ul li.active a{color:#fff}
-#menu > ul > li:hover,#menu ul li.active:hover,#menu ul li.active,#menu ul li.has-sub.active:hover{background:#448D00!important;-webkit-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;}
+#menu > ul > li:hover,#menu ul li.active:hover,#menu ul li.active,#menu ul li.has-sub.active:hover{background:rgb(21, 253, 33)!important;-webkit-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;}
 #menu > ul > li.has-sub > a{padding-right:30px}
 #menu > ul > li.has-sub > a:after{position:absolute;top:22px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
 #menu > ul > li.has-sub > a:before{position:absolute;top:19px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
